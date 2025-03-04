@@ -13,12 +13,12 @@
     <script>
         function checkPassword() {
             var password = prompt("Enter Password:");
-            if (password === "inspire") {
+            if (password && password.trim().toLowerCase() === "inspire") {
                 document.getElementById("content").style.display = "block";
                 document.getElementById("login").style.display = "none";
             } else {
-                alert("Incorrect password. Access denied.");
-                window.location.reload(); // Reload the page if incorrect
+                alert("Incorrect password. Please try again.");
+                checkPassword(); // Re-run the function until the correct password is entered
             }
         }
     </script>
