@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Inspire Employee Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #745ca4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f4b424;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="password"], input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px;
+            background: #745ca4;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #content {
+            display: none;
+        }
+        #chatbot {
+            border-top: 2px solid #745ca4;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login">
+        <h2>Enter Employee Password</h2>
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="checkPassword()">Login</button>
+    </div>
+
+    <div id="content" class="container">
+        <h1>Salon Inspire Employee Handbook</h1>
+        <input type="text" id="search" onkeyup="searchHandbook()" placeholder="Search policies...">
+        <div id="handbook"></div>
+
+        <div id="chatbot">
+            <h3>Ask the Chatbot</h3>
+            <iframe src="YOUR_CHATBOT_LINK_HERE" width="100%" height="400px"></iframe>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = "YOUR_COMMON_PASSWORD"; // Set your common password here
+
+        function checkPassword() {
+            const enteredPassword = document.getElementById("password").value;
+            if (enteredPassword === correctPassword) {
+                document.getElementById("login").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+
+        const handbookData = [
+            { title: "Dress Code", content: "Your dress code policy details go here..." },
+            { title: "Unpaid Time Off", content: "Your unpaid time off policy details go here..." },
+            { title: "Attendance Policy", content: "Your attendance policy details go here..." }
+        ];
+
+        function searchHandbook() {
+            const query = document.getElementById("search").value.toLowerCase();
+            const results = handbookData.filter(item => item.title.toLowerCase().includes(query) || item.content.toLowerCase().includes(query));
+            document.getElementById("handbook").innerHTML = results.map(item => `<h3>${item.title}</h3><p>${item.content}</p>`).join("");
+        }
+    </script>
+
+</body>
+</html>
