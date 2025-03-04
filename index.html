@@ -6,34 +6,21 @@
     <title>Salon Inspire Employee Handbook</title>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f4b424; color: #ffffff; }
-        #content { display: none; }
         .container { background-color: #745ca4; padding: 20px; border-radius: 10px; display: inline-block; }
         a { color: #ffffff; text-decoration: underline; }
     </style>
-    <script>
-        function checkPassword() {
-            var password = prompt("Enter Password:");
-            if (password && password.trim().toLowerCase() === "inspire") {
-                document.getElementById("content").style.display = "block";
-                document.getElementById("login").style.display = "none";
-            } else {
-                alert("Incorrect password. Please try again.");
-                checkPassword(); // Re-run the function until the correct password is entered
-            }
-        }
-    </script>
 </head>
-<body onload="checkPassword()">
+<body>
 
-    <div id="login">
-        <p>If you are not prompted, please refresh the page.</p>
-    </div>
-
-    <div id="content" class="container">
+    <div class="container">
         <h1>Salon Inspire Employee Handbook</h1>
         <p>Welcome to the official handbook. Here, you'll find company policies, procedures, and more.</p>
         <p><a href="your-handbook-file.pdf" download>Download the Employee Handbook (PDF)</a></p>
     </div>
+
+    <script>
+        // Chatbot script (if needed)
+    </script>
 
 </body>
 </html>
